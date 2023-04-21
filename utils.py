@@ -1,22 +1,7 @@
 import torch
-import argparse
-import torch.nn as nn
-import torch.utils.data as Data
-import torch.backends.cudnn as cudnn
 import numpy as np
-import time
-import os
-import json
-import wandb
 from pathlib import Path
-
-from scipy.io import loadmat
 from sklearn.metrics import confusion_matrix
-from spectral import*
-from collections import OrderedDict
-# from gradCAM import GradCAM
-from sklearn.model_selection import train_test_split
-import similaritymeasures
 from sklearn.decomposition import PCA
 
 def applyPCA(X, numComponents=75):
@@ -296,7 +281,7 @@ def train_epoch(model, train_loader, criterion, optimizer, args):
 
     return objs.avg, tar, pre
 #-------------------------------------------------------------------------------
-def valid_epoch(model, valid_loader, criterion, optimizer, args):
+def valid_epoch(model, valid_loader, criterion, args):
     objs = AvgrageMeter()
     top1 = AvgrageMeter()
     tar = np.array([])
@@ -458,65 +443,6 @@ def cal_results(matrix):
 #             loss_file.write(',\n')
 #         loss_file.close()
 
-def get_cam(model, x_test, y_test, class_num=1, return_attn=False):
-    assert class_num >= 1
-    model.eval()
-    model_dict = dict(type='maest', arch=model, layer_name='mlp_head.Linear', input_size=(200, 147))
-    gradcam = GradCAM(model_dict)
-    data = x_test[y_test==(class_num-1)].cuda() #y_test real class starts from 0
-    correct_maps = []
-    wrong_maps = []
-    correct_attns = []
-    wrong_attns = []
-    for i in range(data.size(0)):
-    # for i in range(1):
-        model.zero_grad()
-        if return_attn:
-            saliency_map, logit, attn = gradcam(data[i].unsqueeze(0), class_num-1, return_attn=return_attn)
-            att = attn[:, 1:, 1:].sum(1).squeeze().detach().cpu().numpy()
-            att = (att - att.min())/(att.max() - att.min())
-            # att /= att.max()
-            if (class_num-1) == logit.max(1)[-1]:
-                correct_attns.append(att)
-            else:
-                wrong_attns.append(att)
-        else:
-            saliency_map, logit = gradcam(data[i].unsqueeze(0), class_num-1)
-        if torch.isnan(saliency_map.squeeze()).any():
-            print('final: ', saliency_map)
-        if (class_num-1) == logit.max(1)[-1]:
-            correct_maps.append(saliency_map.squeeze().detach().cpu().numpy())
-        else:
-            wrong_maps.append(saliency_map.squeeze().detach().cpu().numpy())
-    if len(wrong_maps) == 0:
-        wrong_maps = np.zeros((1,x_test.size(1)))
-    if len(wrong_attns) == 0:
-        wrong_attns = np.zeros((1,x_test.size(1)))
-    if return_attn:
-        return np.array(correct_maps).mean(0), np.array(wrong_maps).mean(0), np.array(correct_attns).mean(0), np.array(wrong_attns).mean(0)
-    else:
-        return np.array(correct_maps).mean(0), np.array(wrong_maps).mean(0)
-
-def save_gradcams(model, x, y, num_classes, x_test, y_test, args):
-    all_correct_maps = []
-    all_wrong_maps = []
-    return_attn = False
-    all_correct_attns = []
-    all_wrong_attns = []
-    for c in range(1, num_classes + 1):
-        if return_attn:
-            r, w, correct_attn, wrong_attn = get_cam(model, x, y, c, return_attn=return_attn)
-            all_correct_attns.append(correct_attn)
-            all_wrong_attns.append(wrong_attn)
-        else:
-            r, w = get_cam(model, x_test, y_test, c)
-        all_correct_maps.append(r)
-        all_wrong_maps.append(w)
-    if args.mask_method is not None:
-        np.save('./attention_maps_maest_' + args.dataset, all_correct_attns)
-    else:
-        np.save('./gradcam_maps_vit_' + args.dataset, all_correct_maps)
-        # np.save('./gradcam_maps_vit_fulldata_'+args.dataset, all_correct_maps)
 
 class RandomMaskingGenerator:
     def __init__(self, number_patches, mask_ratio):
@@ -537,43 +463,19 @@ class RandomMaskingGenerator:
         np.random.shuffle(mask)
         return mask
 
-# #-------------------------------------------------------------------------------
-# class DataMask(object):
-#     def __init__(self, args):
-#         self.masked_position_generator = RandomMaskingGenerator(
-#             args.number_patches, args.mask_ratio
-#         )
-#     def __call__(self, data):
-#         return data, self.masked_position_generator()
-#     def __repr__(self):
-#         repr = "(DataMask,\n"
-#         repr += "  Masked position generator = %s,\n" % str(self.masked_position_generator)
-#         repr += ")"
-#         return repr
-# #-------------------------------------------------------------------------------
-# def get_sinusoid_encoding_table(n_position, d_hid):
-#     def get_position_angle_vec(position):
-#         return [position / np.power(10000, 2 * (hid_j // 2) / d_hid) for hid_j in range(d_hid)]
-#
-#     sinusoid_table = np.array([get_position_angle_vec(pos_i) for pos_i in range(n_position)])
-#     sinusoid_table[:, 0::2] = np.sin(sinusoid_table[:, 0::2])
-#     sinusoid_table[:, 1::2] = np.cos(sinusoid_table[:, 1::2])
-#
-#     return torch.FloatTensor(sinusoid_table).unsqueeze(0).cuda()
-# #-------------------------------------------------------------------------------
-# def save_model(args, epoch, model, optimizer):
-#     output_dir = Path(args.output_dir)
-#     epoch_name = str(epoch)
-#     checkpoint_paths = [output_dir / ('checkpoint-%s.pth' % epoch_name)]
-#     for checkpoint_path in checkpoint_paths:
-#         to_save = {
-#             'model': model.state_dict(),
-#             'optimizer': optimizer.state_dict(),
-#             'epoch': epoch,
-#             'args': args,
-#         }
-#         torch.save(to_save, checkpoint_path)
-# #-------------------------------------------------------------------------------
+def save_model(args, epoch, model, optimizer):
+    output_dir = Path(args.output_dir)
+    epoch_name = str(epoch)
+    checkpoint_paths = [output_dir / ('checkpoint-%s.pth' % epoch_name)]
+    for checkpoint_path in checkpoint_paths:
+        to_save = {
+            'model': model.state_dict(),
+            'optimizer': optimizer.state_dict(),
+            'epoch': epoch,
+            'args': args,
+        }
+        torch.save(to_save, checkpoint_path)
+#-------------------------------------------------------------------------------
 def load_state_dict(model, state_dict, prefix='', ignore_missing="relative_position_index"):
     missing_keys = []
     unexpected_keys = []
@@ -621,3 +523,217 @@ def load_state_dict(model, state_dict, prefix='', ignore_missing="relative_posit
     if len(error_msgs) > 0:
         print('\n'.join(error_msgs))
 
+
+###code from https://github.com/1Konny/gradcam_plus_plus-pytorch/blob/master/utils.py for gradCAM
+###***********************************************
+# def visualize_cam(mask, img):
+#     """Make heatmap from mask and synthesize GradCAM result image using heatmap and img.
+#     Args:
+#         mask (torch.tensor): mask shape of (1, 1, H, W) and each element has value in range [0, 1]
+#         img (torch.tensor): img shape of (1, 3, H, W) and each pixel value is in range [0, 1]
+#
+#     Return:
+#         heatmap (torch.tensor): heatmap img shape of (3, H, W)
+#         result (torch.tensor): synthesized GradCAM result of same shape with heatmap.
+#     """
+#     heatmap = cv2.applyColorMap(np.uint8(255 * mask.squeeze()), cv2.COLORMAP_JET)
+#     heatmap = torch.from_numpy(heatmap).permute(2, 0, 1).float().div(255)
+#     b, g, r = heatmap.split(1)
+#     heatmap = torch.cat([r, g, b])
+#
+#     result = heatmap+img.cpu()
+#     result = result.div(result.max()).squeeze()
+#
+#     return heatmap, result
+
+def find_resnet_layer(arch, target_layer_name):
+    """Find resnet layer to calculate GradCAM and GradCAM++
+
+    Args:
+        arch: default torchvision densenet models
+        target_layer_name (str): the name of layer with its hierarchical information. please refer to usages below.
+            target_layer_name = 'conv1'
+            target_layer_name = 'layer1'
+            target_layer_name = 'layer1_basicblock0'
+            target_layer_name = 'layer1_basicblock0_relu'
+            target_layer_name = 'layer1_bottleneck0'
+            target_layer_name = 'layer1_bottleneck0_conv1'
+            target_layer_name = 'layer1_bottleneck0_downsample'
+            target_layer_name = 'layer1_bottleneck0_downsample_0'
+            target_layer_name = 'avgpool'
+            target_layer_name = 'fc'
+
+    Return:
+        target_layer: found layer. this layer will be hooked to get forward/backward pass information.
+    """
+    if 'layer' in target_layer_name:
+        hierarchy = target_layer_name.split('_')
+        layer_num = int(hierarchy[0].lstrip('layer'))
+        if layer_num == 1:
+            target_layer = arch.layer1
+        elif layer_num == 2:
+            target_layer = arch.layer2
+        elif layer_num == 3:
+            target_layer = arch.layer3
+        elif layer_num == 4:
+            target_layer = arch.layer4
+        else:
+            raise ValueError('unknown layer : {}'.format(target_layer_name))
+
+        if len(hierarchy) >= 2:
+            bottleneck_num = int(hierarchy[1].lower().lstrip('bottleneck').lstrip('basicblock'))
+            target_layer = target_layer[bottleneck_num]
+
+        if len(hierarchy) >= 3:
+            target_layer = target_layer._modules[hierarchy[2]]
+
+        if len(hierarchy) == 4:
+            target_layer = target_layer._modules[hierarchy[3]]
+
+    else:
+        target_layer = arch._modules[target_layer_name]
+
+    return target_layer
+
+def find_densenet_layer(arch, target_layer_name):
+    """Find densenet layer to calculate GradCAM and GradCAM++
+
+    Args:
+        arch: default torchvision densenet models
+        target_layer_name (str): the name of layer with its hierarchical information. please refer to usages below.
+            target_layer_name = 'features'
+            target_layer_name = 'features_transition1'
+            target_layer_name = 'features_transition1_norm'
+            target_layer_name = 'features_denseblock2_denselayer12'
+            target_layer_name = 'features_denseblock2_denselayer12_norm1'
+            target_layer_name = 'features_denseblock2_denselayer12_norm1'
+            target_layer_name = 'classifier'
+
+    Return:
+        target_layer: found layer. this layer will be hooked to get forward/backward pass information.
+    """
+
+    hierarchy = target_layer_name.split('_')
+    target_layer = arch._modules[hierarchy[0]]
+
+    if len(hierarchy) >= 2:
+        target_layer = target_layer._modules[hierarchy[1]]
+
+    if len(hierarchy) >= 3:
+        target_layer = target_layer._modules[hierarchy[2]]
+
+    if len(hierarchy) == 4:
+        target_layer = target_layer._modules[hierarchy[3]]
+
+    return target_layer
+
+def find_vgg_layer(arch, target_layer_name):
+    """Find vgg layer to calculate GradCAM and GradCAM++
+
+    Args:
+        arch: default torchvision densenet models
+        target_layer_name (str): the name of layer with its hierarchical information. please refer to usages below.
+            target_layer_name = 'features'
+            target_layer_name = 'features_42'
+            target_layer_name = 'classifier'
+            target_layer_name = 'classifier_0'
+
+    Return:
+        target_layer: found layer. this layer will be hooked to get forward/backward pass information.
+    """
+    hierarchy = target_layer_name.split('_')
+
+    if len(hierarchy) >= 1:
+        target_layer = arch.features
+
+    if len(hierarchy) == 2:
+        target_layer = target_layer[int(hierarchy[1])]
+
+    return target_layer
+
+def find_alexnet_layer(arch, target_layer_name):
+    """Find alexnet layer to calculate GradCAM and GradCAM++
+
+    Args:
+        arch: default torchvision densenet models
+        target_layer_name (str): the name of layer with its hierarchical information. please refer to usages below.
+            target_layer_name = 'features'
+            target_layer_name = 'features_0'
+            target_layer_name = 'classifier'
+            target_layer_name = 'classifier_0'
+
+    Return:
+        target_layer: found layer. this layer will be hooked to get forward/backward pass information.
+    """
+    hierarchy = target_layer_name.split('_')
+
+    if len(hierarchy) >= 1:
+        target_layer = arch.features
+
+    if len(hierarchy) == 2:
+        target_layer = target_layer[int(hierarchy[1])]
+
+    return target_layer
+
+def find_squeezenet_layer(arch, target_layer_name):
+    """Find squeezenet layer to calculate GradCAM and GradCAM++
+
+    Args:
+        arch: default torchvision densenet models
+        target_layer_name (str): the name of layer with its hierarchical information. please refer to usages below.
+            target_layer_name = 'features_12'
+            target_layer_name = 'features_12_expand3x3'
+            target_layer_name = 'features_12_expand3x3_activation'
+
+    Return:
+        target_layer: found layer. this layer will be hooked to get forward/backward pass information.
+    """
+    hierarchy = target_layer_name.split('_')
+    target_layer = arch._modules[hierarchy[0]]
+
+    if len(hierarchy) >= 2:
+        target_layer = target_layer._modules[hierarchy[1]]
+
+    if len(hierarchy) == 3:
+        target_layer = target_layer._modules[hierarchy[2]]
+
+    elif len(hierarchy) == 4:
+        target_layer = target_layer._modules[hierarchy[2]+'_'+hierarchy[3]]
+
+    return target_layer
+
+def denormalize(tensor, mean, std):
+    if not tensor.ndimension() == 4:
+        raise TypeError('tensor should be 4D')
+
+    mean = torch.FloatTensor(mean).view(1, 3, 1, 1).expand_as(tensor).to(tensor.device)
+    std = torch.FloatTensor(std).view(1, 3, 1, 1).expand_as(tensor).to(tensor.device)
+
+    return tensor.mul(std).add(mean)
+
+def normalize(tensor, mean, std):
+    if not tensor.ndimension() == 4:
+        raise TypeError('tensor should be 4D')
+
+    mean = torch.FloatTensor(mean).view(1, 3, 1, 1).expand_as(tensor).to(tensor.device)
+    std = torch.FloatTensor(std).view(1, 3, 1, 1).expand_as(tensor).to(tensor.device)
+
+    return tensor.sub(mean).div(std)
+
+class Normalize(object):
+    def __init__(self, mean, std):
+        self.mean = mean
+        self.std = std
+
+    def __call__(self, tensor):
+        return self.do(tensor)
+
+    def do(self, tensor):
+        return normalize(tensor, self.mean, self.std)
+
+    def undo(self, tensor):
+        return denormalize(tensor, self.mean, self.std)
+
+    def __repr__(self):
+        return self.__class__.__name__ + '(mean={0}, std={1})'.format(self.mean, self.std)
+###***********************************************

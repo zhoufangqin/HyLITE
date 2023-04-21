@@ -2,6 +2,7 @@
 import torch
 import torch.nn.functional as F
 from utils import find_alexnet_layer, find_vgg_layer, find_resnet_layer, find_densenet_layer, find_squeezenet_layer
+import numpy as np
 
 class GradCAM(object):
     """Calculate GradCAM salinecy map.
@@ -137,3 +138,63 @@ class GradCAM(object):
             return saliency_map, logit
     def __call__(self, input, class_idx=None, retain_graph=False, return_attn=False):
         return self.forward(input, class_idx, retain_graph, return_attn=return_attn)
+
+def get_cam(model, x_test, y_test, class_num=1, return_attn=False):
+    assert class_num >= 1
+    model.eval()
+    model_dict = dict(type='maest', arch=model, layer_name='mlp_head.Linear', input_size=(200, 147))
+    gradcam = GradCAM(model_dict)
+    data = x_test[y_test==(class_num-1)].cuda() #y_test real class starts from 0
+    correct_maps = []
+    wrong_maps = []
+    correct_attns = []
+    wrong_attns = []
+    for i in range(data.size(0)):
+    # for i in range(1):
+        model.zero_grad()
+        if return_attn:
+            saliency_map, logit, attn = gradcam(data[i].unsqueeze(0), class_num-1, return_attn=return_attn)
+            att = attn[:, 1:, 1:].sum(1).squeeze().detach().cpu().numpy()
+            att = (att - att.min())/(att.max() - att.min())
+            # att /= att.max()
+            if (class_num-1) == logit.max(1)[-1]:
+                correct_attns.append(att)
+            else:
+                wrong_attns.append(att)
+        else:
+            saliency_map, logit = gradcam(data[i].unsqueeze(0), class_num-1)
+        if torch.isnan(saliency_map.squeeze()).any():
+            print('final: ', saliency_map)
+        if (class_num-1) == logit.max(1)[-1]:
+            correct_maps.append(saliency_map.squeeze().detach().cpu().numpy())
+        else:
+            wrong_maps.append(saliency_map.squeeze().detach().cpu().numpy())
+    if len(wrong_maps) == 0:
+        wrong_maps = np.zeros((1,x_test.size(1)))
+    if len(wrong_attns) == 0:
+        wrong_attns = np.zeros((1,x_test.size(1)))
+    if return_attn:
+        return np.array(correct_maps).mean(0), np.array(wrong_maps).mean(0), np.array(correct_attns).mean(0), np.array(wrong_attns).mean(0)
+    else:
+        return np.array(correct_maps).mean(0), np.array(wrong_maps).mean(0)
+
+def save_gradcams(model, x, y, num_classes, x_test, y_test, args):
+    all_correct_maps = []
+    all_wrong_maps = []
+    return_attn = False
+    all_correct_attns = []
+    all_wrong_attns = []
+    for c in range(1, num_classes + 1):
+        if return_attn:
+            r, w, correct_attn, wrong_attn = get_cam(model, x, y, c, return_attn=return_attn)
+            all_correct_attns.append(correct_attn)
+            all_wrong_attns.append(wrong_attn)
+        else:
+            r, w = get_cam(model, x_test, y_test, c)
+        all_correct_maps.append(r)
+        all_wrong_maps.append(w)
+    if args.mask_method is not None:
+        np.save('./attention_maps_maest_' + args.dataset, all_correct_attns)
+    else:
+        np.save('./gradcam_maps_vit_' + args.dataset, all_correct_maps)
+        # np.save('./gradcam_maps_vit_fulldata_'+args.dataset, all_correct_maps)
