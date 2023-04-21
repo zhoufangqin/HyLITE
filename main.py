@@ -15,10 +15,10 @@ from scipy.io import loadmat
 from sklearn.metrics import confusion_matrix
 from spectral import *
 from collections import OrderedDict
-from gradCAM import GradCAM
 from sklearn.model_selection import train_test_split
 import similaritymeasures
 from sklearn.decomposition import PCA
+from gradCAM import *
 
 parser = argparse.ArgumentParser("HSI")
 parser.add_argument('--dataset', choices=['Indian', 'Pavia', 'Houston'], default='Indian', help='dataset to use')
