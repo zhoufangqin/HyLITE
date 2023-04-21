@@ -392,7 +392,7 @@ def tune_epoch(model, tune_loader, criterion, optimizer, args):
             loss_sar = torch.tensor(0.0)
         loss_c = criterion(batch_pred, batch_target)
         # # loss_align = (1/(5*loss_c)) *loss_align
-        loss = loss_c + loss_align + loss_sar
+        loss = loss_c + args.weights * loss_align + loss_sar
         # loss = 0.35*loss_c + 0.65*loss_align + loss_sar
 
         loss.backward()
