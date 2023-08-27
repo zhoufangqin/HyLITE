@@ -1,0 +1,141 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.10
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.10.4
+    start_time: 1693125434.17583
+    t:
+      1:
+      - 1
+      - 5
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 53
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.10.4
+      5: 0.13.10
+      8:
+      - 5
+align:
+  desc: null
+  value: align
+band_patches:
+  desc: null
+  value: 1
+batch_size:
+  desc: null
+  value: 32
+classes:
+  desc: null
+  value: 16
+dataset:
+  desc: null
+  value: Indian
+device:
+  desc: null
+  value: '0'
+epoches:
+  desc: null
+  value: 300
+flag:
+  desc: null
+  value: train
+freeze_backbone:
+  desc: null
+  value: false
+gamma:
+  desc: null
+  value: 0.9
+gpu_id:
+  desc: null
+  value: '0'
+init_scale:
+  desc: null
+  value: 0.001
+learning_rate:
+  desc: null
+  value: 0.0005
+mask_clf:
+  desc: null
+  value: null
+mask_method:
+  desc: null
+  value: null
+mask_ratio:
+  desc: null
+  value: 0.75
+mode:
+  desc: null
+  value: CAF
+model_key:
+  desc: null
+  value: model|module
+model_path:
+  desc: null
+  value: null
+model_prefix:
+  desc: null
+  value: ''
+number_patches:
+  desc: null
+  value: 200
+output_dir:
+  desc: null
+  value: ./logs/
+patches:
+  desc: null
+  value: 7
+save_ckpt_freq:
+  desc: null
+  value: 200
+save_gradcam:
+  desc: null
+  value: false
+seed:
+  desc: null
+  value: 0
+spatial_attn:
+  desc: null
+  value: true
+test_freq:
+  desc: null
+  value: 5
+train_size:
+  desc: null
+  value: 1.0
+trained_model:
+  desc: null
+  value: null
+use_class_attn:
+  desc: null
+  value: false
+use_fulldata:
+  desc: null
+  value: false
+use_mean_pooling:
+  desc: null
+  value: true
+use_sar:
+  desc: null
+  value: false
+use_se:
+  desc: null
+  value: false
+weight_decay:
+  desc: null
+  value: 0.005
+weights:
+  desc: null
+  value: 1.0

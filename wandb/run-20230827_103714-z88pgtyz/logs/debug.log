@@ -1,0 +1,26 @@
+2023-08-27 10:37:14,169 INFO    MainThread:639534 [wandb_setup.py:_flush():68] Configure stats pid to 639534
+2023-08-27 10:37:14,169 INFO    MainThread:639534 [wandb_setup.py:_flush():68] Loading settings from /home/fangqin/.config/wandb/settings
+2023-08-27 10:37:14,169 INFO    MainThread:639534 [wandb_setup.py:_flush():68] Loading settings from /home/fangqin/bmvc22/HyLITE/wandb/settings
+2023-08-27 10:37:14,169 INFO    MainThread:639534 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-08-27 10:37:14,169 INFO    MainThread:639534 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program': '/home/fangqin/bmvc22/HyLITE/main.py'}
+2023-08-27 10:37:14,169 INFO    MainThread:639534 [wandb_init.py:_log_setup():492] Logging user logs to /home/fangqin/bmvc22/HyLITE/wandb/run-20230827_103714-z88pgtyz/logs/debug.log
+2023-08-27 10:37:14,170 INFO    MainThread:639534 [wandb_init.py:_log_setup():493] Logging internal logs to /home/fangqin/bmvc22/HyLITE/wandb/run-20230827_103714-z88pgtyz/logs/debug-internal.log
+2023-08-27 10:37:14,170 INFO    MainThread:639534 [wandb_init.py:init():532] calling init triggers
+2023-08-27 10:37:14,170 INFO    MainThread:639534 [wandb_init.py:init():538] wandb.init called with sweep_config: {}
+config: {'dataset': 'Indian', 'flag': 'train', 'mode': 'CAF', 'gpu_id': '0', 'seed': 0, 'batch_size': 32, 'test_freq': 5, 'patches': 7, 'band_patches': 1, 'classes': 16, 'epoches': 300, 'learning_rate': 0.0005, 'gamma': 0.9, 'weight_decay': 0.005, 'output_dir': './logs/', 'save_ckpt_freq': 200, 'mask_ratio': 0.75, 'mask_method': None, 'mask_clf': None, 'model_path': None, 'trained_model': None, 'model_key': 'model|module', 'device': '0', 'model_prefix': '', 'init_scale': 0.001, 'use_mean_pooling': True, 'align': 'align', 'freeze_backbone': False, 'save_gradcam': False, 'use_class_attn': False, 'use_fulldata': False, 'spatial_attn': True, 'use_sar': False, 'use_se': False, 'train_size': 1.0, 'weights': 1.0, 'number_patches': 200}
+2023-08-27 10:37:14,170 INFO    MainThread:639534 [wandb_init.py:init():588] starting backend
+2023-08-27 10:37:14,170 INFO    MainThread:639534 [wandb_init.py:init():592] setting up manager
+2023-08-27 10:37:14,173 INFO    MainThread:639534 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-08-27 10:37:14,175 INFO    MainThread:639534 [wandb_init.py:init():599] backend started and connected
+2023-08-27 10:37:14,178 INFO    MainThread:639534 [wandb_init.py:init():687] updated telemetry
+2023-08-27 10:37:14,183 INFO    MainThread:639534 [wandb_init.py:init():727] communicating run to backend with 60.0 second timeout
+2023-08-27 10:37:14,773 INFO    MainThread:639534 [wandb_run.py:_on_init():2134] communicating current version
+2023-08-27 10:37:14,819 INFO    MainThread:639534 [wandb_run.py:_on_init():2143] got version response upgrade_message: "wandb version 0.15.8 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-08-27 10:37:14,819 INFO    MainThread:639534 [wandb_init.py:init():775] starting run threads in backend
+2023-08-27 10:37:16,403 INFO    MainThread:639534 [wandb_run.py:_console_start():2114] atexit reg
+2023-08-27 10:37:16,403 INFO    MainThread:639534 [wandb_run.py:_redirect():1969] redirect: SettingsConsole.WRAP_RAW
+2023-08-27 10:37:16,404 INFO    MainThread:639534 [wandb_run.py:_redirect():2034] Wrapping output streams.
+2023-08-27 10:37:16,404 INFO    MainThread:639534 [wandb_run.py:_redirect():2059] Redirects installed.
+2023-08-27 10:37:16,404 INFO    MainThread:639534 [wandb_init.py:init():817] run started, returning control to user process
+2023-08-27 10:42:18,899 WARNING MsgRouterThr:639534 [router.py:message_loop():77] message_loop has been closed

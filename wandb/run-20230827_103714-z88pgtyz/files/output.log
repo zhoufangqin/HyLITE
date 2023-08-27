@@ -1,0 +1,1073 @@
+Model = VisionTransformerEncoder(
+  (patch_to_embedding): Linear(in_features=49, out_features=64, bias=True)
+  (dropout): Dropout(p=0.1, inplace=False)
+  (transformer): Transformer(
+    (layers): ModuleList(
+      (0): ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=64, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=64, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((201,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=201, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=201, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (2): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=64, out_features=8, bias=True)
+                (1): GELU(approximate=none)
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=8, out_features=64, bias=True)
+                (4): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+      )
+      (1): ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=64, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=64, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((201,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=201, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=201, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (2): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=64, out_features=8, bias=True)
+                (1): GELU(approximate=none)
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=8, out_features=64, bias=True)
+                (4): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+      )
+      (2): ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=64, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=64, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((201,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=201, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=201, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (2): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=64, out_features=8, bias=True)
+                (1): GELU(approximate=none)
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=8, out_features=64, bias=True)
+                (4): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+      )
+      (3): ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=64, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=64, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((201,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=201, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=201, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (2): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=64, out_features=8, bias=True)
+                (1): GELU(approximate=none)
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=8, out_features=64, bias=True)
+                (4): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+      )
+      (4): ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=64, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=64, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((201,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=201, out_features=192, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=64, out_features=201, bias=True)
+                (1): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+        (2): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=64, out_features=8, bias=True)
+                (1): GELU(approximate=none)
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=8, out_features=64, bias=True)
+                (4): Dropout(p=0.1, inplace=False)
+              )
+            )
+          )
+        )
+      )
+    )
+    (skipcat): ModuleList(
+      (0): Conv2d(201, 201, kernel_size=(1, 2), stride=(1, 1))
+      (1): Conv2d(201, 201, kernel_size=(1, 2), stride=(1, 1))
+      (2): Conv2d(201, 201, kernel_size=(1, 2), stride=(1, 1))
+    )
+  )
+  (to_latent): Identity()
+  (mlp_head): Sequential(
+    (0): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+    (1): Linear(in_features=64, out_features=16, bias=True)
+  )
+)
+number of params: 0.609664 M
+Adjusting learning rate of group 0 to 5.0000e-04.
+start training
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 001 train_loss: 4.6634 train_acc: 7.4820
+OA: 0.1061 | AA: 0.0946 | Kappa: 0.0396
+[0.         0.         0.         0.         0.94978479 0.
+ 0.12962963 0.         0.43439716 0.         0.         0.
+ 0.         0.         0.         0.        ]
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 002 train_loss: 3.7465 train_acc: 9.2086
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 003 train_loss: 3.5688 train_acc: 8.7770
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 004 train_loss: 3.4317 train_acc: 10.2158
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 005 train_loss: 3.3539 train_acc: 15.6835
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 006 train_loss: 3.2606 train_acc: 16.2590
+OA: 0.3266 | AA: 0.2422 | Kappa: 0.2339
+[0.94075145 0.         0.         0.         0.         0.98861048
+ 0.         0.02894955 0.         0.91975309 0.9573955  0.03939394
+ 0.         0.         0.         0.        ]
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 007 train_loss: 3.1538 train_acc: 20.8633
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 008 train_loss: 3.0071 train_acc: 26.3309
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 009 train_loss: 2.8943 train_acc: 32.5180
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 010 train_loss: 2.7177 train_acc: 33.9568
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 011 train_loss: 2.5555 train_acc: 37.2662
+OA: 0.3047 | AA: 0.3449 | Kappa: 0.2410
+[0.         0.         0.11413043 0.65324385 0.91248207 0.9977221
+ 0.94880174 0.         0.         0.29012346 0.43569132 0.16666667
+ 1.         0.         0.         0.        ]
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 012 train_loss: 2.4499 train_acc: 39.5683
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 013 train_loss: 2.4133 train_acc: 36.2590
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 014 train_loss: 2.2249 train_acc: 44.0288
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 015 train_loss: 2.1816 train_acc: 44.8921
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 016 train_loss: 2.1294 train_acc: 44.7482
+OA: 0.3549 | AA: 0.4171 | Kappa: 0.2706
+[0.96893064 0.         0.33695652 0.06487696 0.12338594 0.99544419
+ 0.         0.         0.03014184 1.         0.94855305 0.20606061
+ 1.         0.         0.         1.        ]
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 017 train_loss: 2.0700 train_acc: 46.0432
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 018 train_loss: 1.9994 train_acc: 48.2014
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 019 train_loss: 1.9549 train_acc: 48.2014
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 020 train_loss: 1.9202 train_acc: 48.2014
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 021 train_loss: 1.8986 train_acc: 48.7770
+OA: 0.5315 | AA: 0.5339 | Kappa: 0.4665
+[0.35910405 0.31887755 0.46195652 0.5950783  0.10473458 0.99544419
+ 0.73311547 0.65301902 0.08510638 1.         0.67765273 0.53333333
+ 1.         0.02564103 0.         1.        ]
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 022 train_loss: 1.8371 train_acc: 54.8201
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 023 train_loss: 1.8342 train_acc: 48.9209
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 024 train_loss: 1.7691 train_acc: 49.6403
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 025 train_loss: 1.6936 train_acc: 53.3813
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 026 train_loss: 1.7925 train_acc: 51.5108
+OA: 0.3841 | AA: 0.5847 | Kappa: 0.3274
+[0.43352601 0.10969388 0.81521739 0.13199105 0.81348637 0.90888383
+ 0.70261438 0.04880066 0.66489362 1.         0.35369775 0.10606061
+ 1.         0.53846154 0.72727273 1.        ]
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 027 train_loss: 1.7047 train_acc: 53.0935
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 028 train_loss: 1.6544 train_acc: 52.9496
+Adjusting learning rate of group 0 to 5.0000e-04.
+Epoch: 029 train_loss: 1.5451 train_acc: 60.1439
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 030 train_loss: 1.5268 train_acc: 60.4317
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 031 train_loss: 1.5134 train_acc: 60.1439
+OA: 0.4461 | AA: 0.6404 | Kappa: 0.3943
+[2.39161850e-01 2.93367347e-01 8.69565217e-01 5.72706935e-01
+ 8.78048780e-01 9.72665148e-01 8.75816993e-01 4.13564930e-04
+ 3.29787234e-01 1.00000000e+00 7.74919614e-01 3.27272727e-01
+ 1.00000000e+00 3.84615385e-01 7.27272727e-01 1.00000000e+00]
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 032 train_loss: 1.4867 train_acc: 60.5755
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 033 train_loss: 1.4856 train_acc: 58.5611
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 034 train_loss: 1.4584 train_acc: 62.7338
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 035 train_loss: 1.4618 train_acc: 60.5755
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 036 train_loss: 1.4201 train_acc: 61.2950
+OA: 0.4962 | AA: 0.6586 | Kappa: 0.4445
+[0.59393064 0.23979592 0.69021739 0.85234899 0.83213773 0.99544419
+ 0.80065359 0.03432589 0.32269504 1.         0.66318328 0.63030303
+ 0.97777778 0.35897436 0.54545455 1.        ]
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 037 train_loss: 1.4184 train_acc: 61.1511
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 038 train_loss: 1.3775 train_acc: 65.0360
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 039 train_loss: 1.3632 train_acc: 63.5971
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 040 train_loss: 1.3021 train_acc: 67.0504
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 041 train_loss: 1.3479 train_acc: 64.1727
+OA: 0.6168 | AA: 0.7168 | Kappa: 0.5685
+[0.60260116 0.46173469 0.96195652 0.76510067 0.8723099  0.99088838
+ 0.7745098  0.50951199 0.34574468 1.         0.54180064 0.47878788
+ 1.         0.43589744 0.72727273 1.        ]
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 042 train_loss: 1.2841 train_acc: 66.3309
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 043 train_loss: 1.2655 train_acc: 68.6331
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 044 train_loss: 1.3273 train_acc: 63.7410
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 045 train_loss: 1.2427 train_acc: 65.1799
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 046 train_loss: 1.2680 train_acc: 66.0432
+OA: 0.6324 | AA: 0.7265 | Kappa: 0.5873
+[0.58453757 0.29846939 0.92934783 0.2147651  0.8651363  0.89749431
+ 0.83333333 0.43548387 0.75177305 1.         0.93006431 0.52424242
+ 1.         0.35897436 1.         1.        ]
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 047 train_loss: 1.1913 train_acc: 72.6619
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 048 train_loss: 1.1940 train_acc: 69.0648
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 049 train_loss: 1.2216 train_acc: 67.3381
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 050 train_loss: 1.2186 train_acc: 69.4964
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 051 train_loss: 1.1465 train_acc: 71.5108
+OA: 0.6399 | AA: 0.7312 | Kappa: 0.5967
+[0.6734104  0.73341837 1.         0.55480984 0.82065997 0.9977221
+ 0.64814815 0.34739454 0.36879433 1.         0.92926045 0.61818182
+ 1.         0.46153846 0.54545455 1.        ]
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 052 train_loss: 1.1344 train_acc: 71.6547
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 053 train_loss: 1.1519 train_acc: 70.5036
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 054 train_loss: 1.0874 train_acc: 72.9496
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 055 train_loss: 1.0758 train_acc: 74.6763
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 056 train_loss: 1.1332 train_acc: 71.7986
+OA: 0.5952 | AA: 0.6977 | Kappa: 0.5422
+[0.70447977 0.28826531 0.30434783 0.50111857 0.77618364 1.
+ 0.84422658 0.29652605 0.32978723 0.99382716 0.99598071 0.38484848
+ 1.         0.74358974 1.         1.        ]
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 057 train_loss: 1.2094 train_acc: 67.7698
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 058 train_loss: 1.0978 train_acc: 74.3885
+Adjusting learning rate of group 0 to 4.5000e-04.
+Epoch: 059 train_loss: 1.0867 train_acc: 72.0863
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 060 train_loss: 1.0965 train_acc: 71.2230
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 061 train_loss: 1.0385 train_acc: 74.9640
+OA: 0.7773 | AA: 0.8237 | Kappa: 0.7443
+[0.67991329 0.54464286 1.         0.80536913 0.92539455 1.
+ 0.76470588 0.82754342 0.46631206 1.         0.90434084 0.54242424
+ 1.         0.71794872 1.         1.        ]
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 062 train_loss: 0.9905 train_acc: 78.1295
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 063 train_loss: 0.9792 train_acc: 76.2590
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 064 train_loss: 0.9899 train_acc: 75.5396
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 065 train_loss: 1.0433 train_acc: 75.9712
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 066 train_loss: 0.9591 train_acc: 78.4173
+OA: 0.6310 | AA: 0.7531 | Kappa: 0.5855
+[0.81864162 0.19642857 1.         0.78076063 0.92252511 1.
+ 0.81808279 0.19396195 0.53723404 1.         0.96945338 0.69090909
+ 1.         0.66666667 0.45454545 1.        ]
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 067 train_loss: 0.9612 train_acc: 76.5468
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 068 train_loss: 0.9321 train_acc: 78.9928
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 069 train_loss: 0.9491 train_acc: 76.1151
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 070 train_loss: 0.9355 train_acc: 77.9856
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 071 train_loss: 0.9534 train_acc: 76.9784
+OA: 0.7164 | AA: 0.8363 | Kappa: 0.6821
+[0.76300578 0.69642857 1.         0.79418345 0.87517934 0.96583144
+ 0.80174292 0.40074442 0.65957447 1.         0.96784566 0.66060606
+ 1.         0.79487179 1.         1.        ]
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 072 train_loss: 0.9801 train_acc: 76.4029
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 073 train_loss: 0.9864 train_acc: 74.9640
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 074 train_loss: 1.0510 train_acc: 72.8058
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 075 train_loss: 0.9104 train_acc: 79.4245
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 076 train_loss: 0.8816 train_acc: 80.5755
+OA: 0.7131 | AA: 0.7912 | Kappa: 0.6734
+[0.3800578  0.69132653 0.98369565 0.53467562 0.93543759 0.99544419
+ 0.82244009 0.62696443 0.70390071 1.         0.97909968 0.56060606
+ 1.         0.71794872 0.72727273 1.        ]
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 077 train_loss: 0.8777 train_acc: 78.1295
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 078 train_loss: 0.9353 train_acc: 77.4101
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 079 train_loss: 0.8224 train_acc: 83.0216
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 080 train_loss: 0.8101 train_acc: 83.7410
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 081 train_loss: 0.8930 train_acc: 78.9928
+OA: 0.5853 | AA: 0.7449 | Kappa: 0.5370
+[0.375      0.2002551  0.68478261 0.93736018 0.90387374 0.98633257
+ 0.9956427  0.22828784 0.32092199 0.99382716 0.95176849 0.93030303
+ 1.         0.41025641 1.         1.        ]
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 082 train_loss: 0.8523 train_acc: 79.4245
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 083 train_loss: 0.8546 train_acc: 82.4460
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 084 train_loss: 0.9496 train_acc: 76.5468
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 085 train_loss: 0.9252 train_acc: 76.2590
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 086 train_loss: 0.8737 train_acc: 81.1511
+OA: 0.6800 | AA: 0.8329 | Kappa: 0.6420
+[0.46531792 0.5625     0.91304348 0.84563758 0.91248207 1.
+ 0.86165577 0.38172043 0.77659574 1.         0.96382637 0.7969697
+ 1.         0.84615385 1.         1.        ]
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 087 train_loss: 0.7974 train_acc: 81.7266
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 088 train_loss: 0.8068 train_acc: 81.7266
+Adjusting learning rate of group 0 to 4.0500e-04.
+Epoch: 089 train_loss: 0.7892 train_acc: 81.4389
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 090 train_loss: 0.7630 train_acc: 83.8849
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 091 train_loss: 0.7241 train_acc: 84.3165
+OA: 0.6865 | AA: 0.8263 | Kappa: 0.6483
+[0.64956647 0.36096939 0.92391304 0.93064877 0.8579627  0.99544419
+ 0.84095861 0.39330025 0.84751773 1.         0.94855305 0.6
+ 1.         0.87179487 1.         1.        ]
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 092 train_loss: 0.7506 train_acc: 83.4532
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 093 train_loss: 0.7952 train_acc: 81.7266
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 094 train_loss: 0.8770 train_acc: 77.2662
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 095 train_loss: 0.7714 train_acc: 82.7338
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 096 train_loss: 0.7465 train_acc: 85.0360
+OA: 0.7526 | AA: 0.8494 | Kappa: 0.7194
+[0.62861272 0.64668367 1.         0.98881432 0.86370158 1.
+ 0.89542484 0.76757651 0.7535461  1.         0.4670418  0.91212121
+ 1.         0.66666667 1.         1.        ]
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 097 train_loss: 0.7030 train_acc: 87.0504
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 098 train_loss: 0.7563 train_acc: 83.7410
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 099 train_loss: 0.7615 train_acc: 84.3165
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 100 train_loss: 0.7108 train_acc: 84.3165
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 101 train_loss: 0.6733 train_acc: 87.1942
+OA: 0.7831 | AA: 0.8721 | Kappa: 0.7543
+[0.58092486 0.66071429 0.89130435 0.98210291 0.89239598 1.
+ 0.96949891 0.62655087 0.80673759 1.         0.97186495 0.8030303
+ 1.         0.76923077 1.         1.        ]
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 102 train_loss: 0.7357 train_acc: 84.7482
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 103 train_loss: 0.8107 train_acc: 78.1295
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 104 train_loss: 0.7120 train_acc: 84.3165
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 105 train_loss: 0.6760 train_acc: 86.1870
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 106 train_loss: 0.6580 train_acc: 87.0504
+OA: 0.7947 | AA: 0.8701 | Kappa: 0.7677
+[0.75939306 0.66326531 0.9673913  0.85458613 0.91104735 1.
+ 0.91503268 0.61373036 0.7358156  1.         0.96302251 0.8969697
+ 1.         0.64102564 1.         1.        ]
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 107 train_loss: 0.6730 train_acc: 86.6187
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 108 train_loss: 0.6749 train_acc: 85.1799
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 109 train_loss: 0.6927 train_acc: 84.1727
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 110 train_loss: 0.6652 train_acc: 87.3381
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 111 train_loss: 0.6118 train_acc: 88.0576
+OA: 0.7769 | AA: 0.8950 | Kappa: 0.7487
+[0.82080925 0.80867347 0.98369565 0.98434004 0.91391679 0.98405467
+ 0.83551198 0.51364764 0.83156028 1.         0.84324759 0.8
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 112 train_loss: 0.6528 train_acc: 86.0432
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 113 train_loss: 0.6474 train_acc: 86.0432
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 114 train_loss: 0.6941 train_acc: 84.4604
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 115 train_loss: 0.6176 train_acc: 86.9065
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 116 train_loss: 0.6901 train_acc: 84.0288
+OA: 0.7129 | AA: 0.8506 | Kappa: 0.6791
+[0.85260116 0.90816327 1.         0.88143177 0.94548063 1.
+ 0.90522876 0.22663358 0.71631206 1.         0.92041801 0.43333333
+ 1.         0.82051282 1.         1.        ]
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 117 train_loss: 0.7258 train_acc: 82.3022
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 118 train_loss: 0.6761 train_acc: 84.8921
+Adjusting learning rate of group 0 to 3.6450e-04.
+Epoch: 119 train_loss: 0.6237 train_acc: 86.9065
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 120 train_loss: 0.5812 train_acc: 90.0719
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 121 train_loss: 0.5697 train_acc: 89.2086
+OA: 0.8031 | AA: 0.9066 | Kappa: 0.7782
+[0.7066474  0.78443878 0.99456522 0.97986577 0.90961263 0.9977221
+ 0.92265795 0.58519438 0.81737589 1.         0.95980707 0.92424242
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 122 train_loss: 0.5867 train_acc: 89.4964
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 123 train_loss: 0.5517 train_acc: 89.6403
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 124 train_loss: 0.5748 train_acc: 88.7770
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 125 train_loss: 0.5449 train_acc: 90.0719
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 126 train_loss: 0.5448 train_acc: 89.9281
+OA: 0.7728 | AA: 0.8757 | Kappa: 0.7429
+[0.72760116 0.47959184 0.95652174 0.94630872 0.92395983 1.
+ 0.98474946 0.55831266 0.83687943 1.         0.95337621 0.72121212
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 127 train_loss: 0.5714 train_acc: 89.2086
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 128 train_loss: 0.5248 train_acc: 91.7986
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 129 train_loss: 0.5587 train_acc: 88.7770
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 130 train_loss: 0.5353 train_acc: 89.9281
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 131 train_loss: 0.5416 train_acc: 90.2158
+OA: 0.7849 | AA: 0.8899 | Kappa: 0.7566
+[0.7333815  0.53188776 0.95108696 0.94854586 0.94835007 0.99544419
+ 0.96840959 0.56534326 0.80851064 1.         0.97427653 0.83939394
+ 1.         0.97435897 1.         1.        ]
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 132 train_loss: 0.5611 train_acc: 87.7698
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 133 train_loss: 0.5659 train_acc: 87.9137
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 134 train_loss: 0.5727 train_acc: 87.3381
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 135 train_loss: 0.5783 train_acc: 88.0576
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 136 train_loss: 0.5355 train_acc: 89.7842
+OA: 0.7604 | AA: 0.8784 | Kappa: 0.7317
+[0.73988439 0.59056122 0.91847826 0.94630872 0.91822095 1.
+ 0.94444444 0.4433416  0.91312057 1.         0.98633441 0.78181818
+ 1.         0.87179487 1.         1.        ]
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 137 train_loss: 0.5111 train_acc: 90.3597
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 138 train_loss: 0.5513 train_acc: 89.7842
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 139 train_loss: 0.5484 train_acc: 89.0648
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 140 train_loss: 0.6434 train_acc: 85.8993
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 141 train_loss: 0.7147 train_acc: 83.5971
+OA: 0.7132 | AA: 0.8353 | Kappa: 0.6785
+[0.74783237 0.73214286 0.98913043 0.93736018 0.93113343 0.99316629
+ 0.98910675 0.63110008 0.70567376 1.         0.16961415 0.94848485
+ 1.         0.58974359 1.         1.        ]
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 142 train_loss: 0.6247 train_acc: 87.3381
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 143 train_loss: 0.5362 train_acc: 89.6403
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 144 train_loss: 0.5511 train_acc: 90.6475
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 145 train_loss: 0.4928 train_acc: 90.7914
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 146 train_loss: 0.5448 train_acc: 88.4892
+OA: 0.7431 | AA: 0.8685 | Kappa: 0.7098
+[0.57803468 0.35714286 0.9076087  0.98434004 0.85222382 0.98861048
+ 0.99237473 0.56286187 0.79432624 1.         0.95176849 0.92727273
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 147 train_loss: 0.4877 train_acc: 91.9424
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 148 train_loss: 0.5095 train_acc: 90.0719
+Adjusting learning rate of group 0 to 3.2805e-04.
+Epoch: 149 train_loss: 0.5837 train_acc: 87.4820
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 150 train_loss: 0.4784 train_acc: 92.3741
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 151 train_loss: 0.4675 train_acc: 91.9424
+OA: 0.8149 | AA: 0.9014 | Kappa: 0.7906
+[0.76734104 0.87117347 0.98913043 0.97091723 0.93113343 0.96127563
+ 0.97821351 0.58229942 0.79255319 1.         0.99115756 0.61212121
+ 1.         0.97435897 1.         1.        ]
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 152 train_loss: 0.4625 train_acc: 91.7986
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 153 train_loss: 0.4366 train_acc: 93.8130
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 154 train_loss: 0.4414 train_acc: 93.8130
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 155 train_loss: 0.4121 train_acc: 94.9640
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 156 train_loss: 0.4639 train_acc: 92.0863
+OA: 0.7468 | AA: 0.8721 | Kappa: 0.7144
+[0.50144509 0.60586735 0.85869565 0.95302013 0.92109039 1.
+ 0.98910675 0.51323408 0.82624113 1.         0.97588424 0.91212121
+ 1.         0.8974359  1.         1.        ]
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 157 train_loss: 0.4510 train_acc: 91.9424
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 158 train_loss: 0.4813 train_acc: 90.6475
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 159 train_loss: 0.4453 train_acc: 92.6619
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 160 train_loss: 0.4877 train_acc: 89.6403
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 161 train_loss: 0.4492 train_acc: 92.3741
+OA: 0.8332 | AA: 0.9171 | Kappa: 0.8115
+[0.78179191 0.93877551 0.95652174 0.91051454 0.96269727 0.9977221
+ 0.95315904 0.59884202 0.83865248 1.         0.97909968 0.83333333
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 162 train_loss: 0.4688 train_acc: 90.2158
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 163 train_loss: 0.4606 train_acc: 92.2302
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 164 train_loss: 0.4381 train_acc: 92.3741
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 165 train_loss: 0.4258 train_acc: 92.5180
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 166 train_loss: 0.3869 train_acc: 94.6763
+OA: 0.7924 | AA: 0.9069 | Kappa: 0.7662
+[0.58092486 0.85204082 0.93478261 0.95525727 0.94261119 0.99544419
+ 0.97603486 0.5802316  0.84574468 1.         0.91398714 0.98484848
+ 1.         0.94871795 1.         1.        ]
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 167 train_loss: 0.3857 train_acc: 94.3885
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 168 train_loss: 0.4243 train_acc: 92.2302
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 169 train_loss: 0.3996 train_acc: 94.5324
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 170 train_loss: 0.3772 train_acc: 94.5324
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 171 train_loss: 0.4137 train_acc: 93.6691
+OA: 0.8325 | AA: 0.9126 | Kappa: 0.8104
+[0.75072254 0.86989796 0.92934783 0.97091723 0.93687231 0.98861048
+ 0.94989107 0.6439206  0.79432624 1.         0.97749196 0.86666667
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 172 train_loss: 0.3921 train_acc: 93.9568
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 173 train_loss: 0.4123 train_acc: 92.8058
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 174 train_loss: 0.4574 train_acc: 90.0719
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 175 train_loss: 0.4812 train_acc: 90.7914
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 176 train_loss: 0.5081 train_acc: 87.9137
+OA: 0.7094 | AA: 0.8542 | Kappa: 0.6733
+[0.63439306 0.28316327 0.98369565 0.94854586 0.758967   0.97949886
+ 0.99455338 0.43920596 0.79255319 0.99382716 0.98553055 0.87272727
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 177 train_loss: 0.4197 train_acc: 92.3741
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 178 train_loss: 0.3892 train_acc: 93.8130
+Adjusting learning rate of group 0 to 2.9525e-04.
+Epoch: 179 train_loss: 0.4133 train_acc: 91.6547
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 180 train_loss: 0.4513 train_acc: 92.3741
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 181 train_loss: 0.4120 train_acc: 91.9424
+OA: 0.8286 | AA: 0.9165 | Kappa: 0.8060
+[0.80708092 0.86352041 0.90217391 0.9261745  0.93256815 0.99316629
+ 0.94553377 0.59594706 0.82801418 1.         0.98231511 0.88787879
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 182 train_loss: 0.3949 train_acc: 93.8130
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 183 train_loss: 0.3618 train_acc: 95.2518
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 184 train_loss: 0.3453 train_acc: 95.2518
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 185 train_loss: 0.3550 train_acc: 94.6763
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 186 train_loss: 0.3752 train_acc: 93.8130
+OA: 0.8592 | AA: 0.9267 | Kappa: 0.8400
+[0.80708092 0.87117347 0.95652174 0.94854586 0.92539455 1.
+ 0.98801743 0.69230769 0.82092199 1.         0.98151125 0.91212121
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 187 train_loss: 0.3989 train_acc: 92.5180
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 188 train_loss: 0.3608 train_acc: 95.6834
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 189 train_loss: 0.3459 train_acc: 94.9640
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 190 train_loss: 0.3720 train_acc: 94.1007
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 191 train_loss: 0.3882 train_acc: 94.3885
+OA: 0.8006 | AA: 0.8972 | Kappa: 0.7752
+[0.71387283 0.7869898  0.89673913 0.93959732 0.91822095 1.
+ 0.97385621 0.55293631 0.84219858 0.99382716 0.95659164 0.98484848
+ 1.         0.79487179 1.         1.        ]
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 192 train_loss: 0.3456 train_acc: 95.1079
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 193 train_loss: 0.3691 train_acc: 94.1007
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 194 train_loss: 0.3509 train_acc: 96.1151
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 195 train_loss: 0.3205 train_acc: 96.1151
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 196 train_loss: 0.3392 train_acc: 94.9640
+OA: 0.8676 | AA: 0.9082 | Kappa: 0.8491
+[0.78901734 0.89923469 0.9673913  0.96644295 0.93830703 1.
+ 0.93137255 0.75847808 0.76950355 0.99382716 0.98633441 0.89090909
+ 1.         0.64102564 1.         1.        ]
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 197 train_loss: 0.3240 train_acc: 96.5468
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 198 train_loss: 0.3301 train_acc: 96.2590
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 199 train_loss: 0.3521 train_acc: 94.1007
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 200 train_loss: 0.3415 train_acc: 95.3957
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 201 train_loss: 0.3187 train_acc: 95.8273
+OA: 0.8223 | AA: 0.9067 | Kappa: 0.7987
+[0.625      0.89795918 0.86413043 0.93512304 0.93256815 1.
+ 0.98039216 0.65550041 0.82446809 1.         0.99115756 0.82727273
+ 1.         0.97435897 1.         1.        ]
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 202 train_loss: 0.3157 train_acc: 96.5468
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 203 train_loss: 0.3396 train_acc: 94.9640
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 204 train_loss: 0.3636 train_acc: 93.5252
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 205 train_loss: 0.4103 train_acc: 92.9496
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 206 train_loss: 0.3353 train_acc: 95.5396
+OA: 0.8110 | AA: 0.8982 | Kappa: 0.7861
+[0.76589595 0.71173469 0.88586957 0.95302013 0.94548063 1.
+ 0.96949891 0.5789909  0.82978723 0.99382716 0.97749196 0.93939394
+ 1.         0.82051282 1.         1.        ]
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 207 train_loss: 0.2973 train_acc: 96.1151
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 208 train_loss: 0.3407 train_acc: 94.3885
+Adjusting learning rate of group 0 to 2.6572e-04.
+Epoch: 209 train_loss: 0.3788 train_acc: 93.2374
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 210 train_loss: 0.3222 train_acc: 95.9712
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 211 train_loss: 0.3019 train_acc: 96.4029
+OA: 0.8162 | AA: 0.9038 | Kappa: 0.7913
+[0.63872832 0.7002551  0.91847826 0.96196868 0.95552367 0.99088838
+ 0.98148148 0.66832093 0.81560284 1.         0.98713826 0.89393939
+ 1.         0.94871795 1.         1.        ]
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 212 train_loss: 0.3074 train_acc: 96.1151
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 213 train_loss: 0.3236 train_acc: 94.9640
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 214 train_loss: 0.3267 train_acc: 94.8201
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 215 train_loss: 0.3218 train_acc: 94.9640
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 216 train_loss: 0.2941 train_acc: 96.6906
+OA: 0.7742 | AA: 0.8883 | Kappa: 0.7438
+[0.54985549 0.67219388 0.94021739 0.97091723 0.8723099  1.
+ 0.9912854  0.67328371 0.77304965 1.         0.79340836 0.97575758
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 217 train_loss: 0.3334 train_acc: 94.1007
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 218 train_loss: 0.3170 train_acc: 95.6834
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 219 train_loss: 0.2939 train_acc: 96.6906
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 220 train_loss: 0.3032 train_acc: 94.8201
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 221 train_loss: 0.2964 train_acc: 96.8345
+OA: 0.8563 | AA: 0.9254 | Kappa: 0.8369
+[0.8099711  0.83418367 0.95652174 0.94630872 0.93830703 1.
+ 0.95642702 0.68610422 0.87234043 1.         0.98954984 0.89393939
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 222 train_loss: 0.3120 train_acc: 95.2518
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 223 train_loss: 0.3269 train_acc: 94.2446
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 224 train_loss: 0.3267 train_acc: 95.1079
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 225 train_loss: 0.3077 train_acc: 95.8273
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 226 train_loss: 0.2613 train_acc: 97.6978
+OA: 0.8281 | AA: 0.9257 | Kappa: 0.8058
+[0.82442197 0.86989796 0.98369565 0.96196868 0.90961263 1.
+ 0.95424837 0.57113317 0.81205674 0.99382716 0.97266881 0.95757576
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 227 train_loss: 0.2604 train_acc: 97.5540
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 228 train_loss: 0.2565 train_acc: 97.4101
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 229 train_loss: 0.2562 train_acc: 97.1223
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 230 train_loss: 0.2966 train_acc: 96.5468
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 231 train_loss: 0.2994 train_acc: 95.5396
+OA: 0.8680 | AA: 0.9124 | Kappa: 0.8485
+[0.71893064 0.86989796 0.80434783 0.93736018 0.94691535 0.9977221
+ 0.92265795 0.82258065 0.81914894 0.99382716 0.99598071 0.76969697
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 232 train_loss: 0.2770 train_acc: 96.6906
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 233 train_loss: 0.2987 train_acc: 95.6834
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 234 train_loss: 0.2885 train_acc: 96.9784
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 235 train_loss: 0.3175 train_acc: 94.3885
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 236 train_loss: 0.2782 train_acc: 96.4029
+OA: 0.8551 | AA: 0.9342 | Kappa: 0.8359
+[0.83020231 0.90178571 0.99456522 0.96868009 0.93543759 1.
+ 0.98801743 0.64888337 0.84219858 0.99382716 0.94533762 0.97575758
+ 1.         0.92307692 1.         1.        ]
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 237 train_loss: 0.2791 train_acc: 96.8345
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 238 train_loss: 0.2789 train_acc: 95.3957
+Adjusting learning rate of group 0 to 2.3915e-04.
+Epoch: 239 train_loss: 0.2761 train_acc: 96.1151
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 240 train_loss: 0.2674 train_acc: 96.6906
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 241 train_loss: 0.2596 train_acc: 98.1295
+OA: 0.8705 | AA: 0.9360 | Kappa: 0.8528
+[0.84104046 0.85841837 0.94021739 0.94854586 0.91965567 1.
+ 0.96623094 0.72456576 0.84929078 0.99382716 0.97106109 0.96363636
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 242 train_loss: 0.2341 train_acc: 98.2734
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 243 train_loss: 0.2392 train_acc: 97.6978
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 244 train_loss: 0.2453 train_acc: 97.4101
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 245 train_loss: 0.3138 train_acc: 95.9712
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 246 train_loss: 0.2567 train_acc: 97.1223
+OA: 0.8692 | AA: 0.9368 | Kappa: 0.8515
+[0.75144509 0.95408163 0.93478261 0.9753915  0.92539455 1.
+ 0.95969499 0.73325062 0.87411348 0.99382716 0.96302251 0.97575758
+ 1.         0.94871795 1.         1.        ]
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 247 train_loss: 0.2277 train_acc: 97.9856
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 248 train_loss: 0.2385 train_acc: 97.8417
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 249 train_loss: 0.2684 train_acc: 96.4029
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 250 train_loss: 0.3072 train_acc: 94.3885
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 251 train_loss: 0.2509 train_acc: 97.1223
+OA: 0.8541 | AA: 0.9236 | Kappa: 0.8339
+[0.78901734 0.84693878 0.98369565 0.96868009 0.90530846 1.
+ 0.98474946 0.72828784 0.78546099 0.99382716 0.94051447 0.85151515
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 252 train_loss: 0.2617 train_acc: 97.4101
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 253 train_loss: 0.2302 train_acc: 97.8417
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 254 train_loss: 0.2457 train_acc: 96.8345
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 255 train_loss: 0.2480 train_acc: 96.8345
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 256 train_loss: 0.2710 train_acc: 95.9712
+OA: 0.8485 | AA: 0.9311 | Kappa: 0.8285
+[0.82514451 0.9375     0.98369565 0.91722595 0.94691535 1.
+ 0.93572985 0.62985939 0.83865248 0.99382716 0.97588424 0.93939394
+ 1.         0.97435897 1.         1.        ]
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 257 train_loss: 0.2409 train_acc: 96.8345
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 258 train_loss: 0.2368 train_acc: 97.5540
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 259 train_loss: 0.2237 train_acc: 98.2734
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 260 train_loss: 0.2236 train_acc: 97.2662
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 261 train_loss: 0.2428 train_acc: 97.1223
+OA: 0.8780 | AA: 0.9285 | Kappa: 0.8604
+[0.70375723 0.96811224 0.98913043 0.92393736 0.97991392 1.
+ 0.90413943 0.83788255 0.71808511 0.99382716 0.9903537  0.87272727
+ 1.         0.97435897 1.         1.        ]
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 262 train_loss: 0.2786 train_acc: 95.5396
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 263 train_loss: 0.2599 train_acc: 96.5468
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 264 train_loss: 0.2867 train_acc: 96.6906
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 265 train_loss: 0.2536 train_acc: 96.2590
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 266 train_loss: 0.2336 train_acc: 97.4101
+OA: 0.8822 | AA: 0.9314 | Kappa: 0.8654
+[0.77528902 0.90306122 0.95108696 0.95973154 0.96269727 0.9977221
+ 0.94771242 0.80231596 0.84219858 0.99382716 0.99437299 0.77272727
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 267 train_loss: 0.2082 train_acc: 98.9928
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 268 train_loss: 0.2059 train_acc: 98.2734
+Adjusting learning rate of group 0 to 2.1523e-04.
+Epoch: 269 train_loss: 0.2210 train_acc: 97.6978
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 270 train_loss: 0.2206 train_acc: 97.8417
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 271 train_loss: 0.2175 train_acc: 97.6978
+OA: 0.8811 | AA: 0.9262 | Kappa: 0.8645
+[0.7283237  0.95663265 0.9673913  0.96644295 0.94691535 1.
+ 0.96187364 0.80976013 0.85992908 0.99382716 0.92765273 0.98181818
+ 1.         0.71794872 1.         1.        ]
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 272 train_loss: 0.2091 train_acc: 98.4173
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 273 train_loss: 0.2175 train_acc: 97.9856
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 274 train_loss: 0.2116 train_acc: 97.9856
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 275 train_loss: 0.2013 train_acc: 98.1295
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 276 train_loss: 0.1936 train_acc: 98.1295
+OA: 0.8901 | AA: 0.9437 | Kappa: 0.8743
+[0.72037572 0.89795918 0.99456522 0.96868009 0.93400287 0.9977221
+ 0.96296296 0.85194376 0.84574468 0.99382716 0.96543408 0.96666667
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 277 train_loss: 0.1820 train_acc: 98.8489
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 278 train_loss: 0.2119 train_acc: 97.8417
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 279 train_loss: 0.2330 train_acc: 98.1295
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 280 train_loss: 0.2132 train_acc: 97.9856
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 281 train_loss: 0.1975 train_acc: 98.8489
+OA: 0.8910 | AA: 0.9481 | Kappa: 0.8760
+[0.8099711  0.94897959 0.99456522 0.98434004 0.93400287 1.
+ 0.96732026 0.78494624 0.85106383 0.98765432 0.95900322 0.97272727
+ 1.         0.97435897 1.         1.        ]
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 282 train_loss: 0.1973 train_acc: 98.1295
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 283 train_loss: 0.1880 train_acc: 98.7050
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 284 train_loss: 0.2022 train_acc: 98.7050
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 285 train_loss: 0.2031 train_acc: 97.5540
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 286 train_loss: 0.2186 train_acc: 97.5540
+OA: 0.8515 | AA: 0.9132 | Kappa: 0.8305
+[0.64812139 0.84438776 0.92934783 0.95749441 0.97991392 0.99544419
+ 0.95206972 0.78990902 0.83156028 1.         0.91318328 0.94848485
+ 1.         0.82051282 1.         1.        ]
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 287 train_loss: 0.2254 train_acc: 96.5468
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 288 train_loss: 0.2318 train_acc: 97.4101
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 289 train_loss: 0.2232 train_acc: 97.5540
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 290 train_loss: 0.2359 train_acc: 96.8345
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 291 train_loss: 0.2157 train_acc: 97.9856
+OA: 0.8648 | AA: 0.9309 | Kappa: 0.8459
+[0.75650289 0.83545918 0.96195652 0.96420582 0.96843615 1.
+ 0.95642702 0.75186104 0.80851064 1.         0.96945338 0.97272727
+ 1.         0.94871795 1.         1.        ]
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 292 train_loss: 0.2102 train_acc: 98.4173
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 293 train_loss: 0.2007 train_acc: 98.9928
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 294 train_loss: 0.1978 train_acc: 97.9856
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 295 train_loss: 0.1641 train_acc: 99.5683
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 296 train_loss: 0.1771 train_acc: 98.8489
+OA: 0.8847 | AA: 0.9409 | Kappa: 0.8684
+[0.74638728 0.9247449  0.95652174 0.95973154 0.95121951 1.
+ 0.97821351 0.81141439 0.80319149 0.99382716 0.96302251 0.96666667
+ 1.         1.         1.         1.        ]
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 297 train_loss: 0.1883 train_acc: 98.2734
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 298 train_loss: 0.1830 train_acc: 98.5611
+Adjusting learning rate of group 0 to 1.9371e-04.
+Epoch: 299 train_loss: 0.1716 train_acc: 99.1367
+Adjusting learning rate of group 0 to 1.7434e-04.
+Epoch: 300 train_loss: 0.2036 train_acc: 97.9856
+OA: 0.8980 | AA: 0.9469 | Kappa: 0.8834
+[0.80419075 0.95153061 0.97826087 0.96420582 0.94261119 1.
+ 0.9422658  0.83705542 0.80851064 0.99382716 0.95900322 0.96969697
+ 1.         1.         1.         1.        ]
+Running Time: 295.04
+**************************************************
+Final result:
+Final test OA: 0.8980 | AA: 0.9469 | Kappa: 0.8834
+Average Test OA: 0.7328 | AA: 0.8202 | Kappa: 0.7002
+Best Test OA: 0.8980 | AA: 0.9481 | Kappa: 0.8834
+**************************************************
