@@ -1,6 +1,6 @@
 # Locality-Aware Hyperspectral Classification
 The code implements the ["Locality-Aware Hyperspectral Classification"](https://arxiv.org/pdf/2309.01561.pdf)
-![image](https://github.com/zhoufangqin/HyLITE/assets/56824007/f6a2a629-eb41-4361-8219-ebd6ac11f5c3)
+![image](https://github.com/zhoufangqin/HyLITE/blob/main/Architecture_v4.png)
 
 
 ## Example of training
