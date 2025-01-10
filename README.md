@@ -1,7 +1,7 @@
 # Locality-Aware Hyperspectral Classification
 The code implements the ["Locality-Aware Hyperspectral Classification"](https://arxiv.org/pdf/2309.01561.pdf)
+["Supplementary"](https://bmvc2022.mpi-inf.mpg.de/BMVC2023/0022_supp.pdf)
 ![image](https://github.com/zhoufangqin/HyLITE/blob/main/Architecture_v4.png)
-
 
 ## Example of training
 $python main.py --dataset='Indian' --epoches=300 --patches=7 --band_patches=1 --mode='CAF' --weight_decay=5e-3 --flag='train' --output_dir='./logs/' --batch_size=32 --align='align' --spatial_attn
