@@ -1,6 +1,5 @@
 # Locality-Aware Hyperspectral Classification
-The code implements the ["Locality-Aware Hyperspectral Classification"](https://arxiv.org/pdf/2309.01561.pdf)
-["Supplementary"](https://bmvc2022.mpi-inf.mpg.de/BMVC2023/0022_supp.pdf)
+The code implements the ["Locality-Aware Hyperspectral Classification (BMVC2023)"](https://arxiv.org/pdf/2309.01561.pdf)
 ![image](https://github.com/zhoufangqin/HyLITE/blob/main/Architecture_v4.png)
 
 ## Example of training
@@ -8,6 +7,9 @@ $python main.py --dataset='Indian' --epoches=300 --patches=7 --band_patches=1 --
 
 ## Example of visualizing the results
 $python visualization.py
+
+## Experimental setup
+For a detailed experimental setup and dataset information, please refer to our [supplementary materials](https://bmvc2022.mpi-inf.mpg.de/BMVC2023/0022_supp.pdf).
 
 ## Citations:
 The code is built upon [SpectralFormer](https://github.com/danfenghong/IEEE_TGRS_SpectralFormer#spectralformer-rethinking-hyperspectral-image-classification-with-transformers)
